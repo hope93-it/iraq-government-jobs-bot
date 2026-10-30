@@ -93,30 +93,30 @@
   "channels": [
     {
       "username": "@mhdhjdgjvcxxcnnvcsagnnbxccjfsssg",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها."
     },
     {
       "username": "@albsra88",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها."
     },
     {
       "username": "@basrawebsite",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها."
     },
     {
       "username": "@f16f16f32",
@@ -124,44 +124,46 @@
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_failed_on_github",
+      "verification_note": "2026-10-30: فشل فحص المعاينة في GitHub بـValueError؛ لم يحدد السجل هل السبب خصوصية القناة أو غياب منشورات نصية أو تغير البنية. تبقى غير مفعلة."
     },
     {
       "username": "@aqodalbasraa",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها."
     },
     {
       "username": "@BasrajobsCh",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها.",
+      "last_visible_text_date_at_check": "2026-05-26"
     },
     {
       "username": "@odai_aawad",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها.",
+      "last_visible_text_date_at_check": "2026-08-20"
     },
     {
       "username": "@Haider_alasedy",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها."
     },
     {
       "username": "@asfggtty315",
@@ -169,17 +171,18 @@
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_failed_on_github",
+      "verification_note": "2026-10-30: فشل فحص المعاينة في GitHub بـValueError؛ لم يحدد السجل هل السبب خصوصية القناة أو غياب منشورات نصية أو تغير البنية. تبقى غير مفعلة."
     },
     {
       "username": "@odaiaowad",
-      "enabled": false,
+      "enabled": true,
       "mode": "public_preview",
       "notify_news": true,
       "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
-      "verification_status": "pending_github_check",
-      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+      "verification_status": "preview_verified_on_github",
+      "verification_note": "2026-10-30: نجحت قراءة منشورات نصية من المعاينة العامة في فحص GitHub المرفوع من المستخدم. هذا تحقق من إمكانية القراءة فقط وليس تأكيد رسمية القناة أو صحة أخبارها.",
+      "last_visible_text_date_at_check": "2026-07-01"
     }
   ]
 }
