@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-10-30",
+  "sources": [
+    {
+      "id": "basra_jobs",
+      "name": "ديوان محافظة البصرة — وظائف وتعينات",
+      "enabled": true,
+      "kind": "html",
+      "priority": 0,
+      "province": "البصرة",
+      "url": "https://basra.gov.iq/ar/index.php//184/1000/index.1.html",
+      "hosts": [
+        "basra.gov.iq"
+      ],
+      "link_selector": "a[href]",
+      "link_pattern": "/permalink/\\d+\\.html$",
+      "title_selector": "h1.page_title",
+      "body_selector": "#article_body",
+      "date_selector": ".story_date",
+      "limit": 20,
+      "verification_note": "200 HTML؛ المسار منشور في قائمة الموقع الرسمية؛ الأرشيف يتضمن إعلانات قديمة لا ترسل."
+    },
+    {
+      "id": "basra_media",
+      "name": "ديوان محافظة البصرة — المركز الإعلامي",
+      "enabled": true,
+      "kind": "html",
+      "priority": 0,
+      "province": "البصرة",
+      "url": "https://basra.gov.iq/ar/",
+      "hosts": [
+        "basra.gov.iq"
+      ],
+      "link_selector": "a[href]",
+      "link_pattern": "/permalink/\\d+\\.html$",
+      "title_selector": "h1.page_title",
+      "body_selector": "#article_body",
+      "date_selector": ".story_date",
+      "limit": 25,
+      "verification_note": "200 HTML؛ جرى فحص رابط مقال والعنوان والنص والتاريخ."
+    },
+    {
+      "id": "uobasrah",
+      "name": "جامعة البصرة الحكومية",
+      "enabled": true,
+      "kind": "html",
+      "priority": 0,
+      "province": "البصرة",
+      "url": "https://uobasrah.edu.iq/news",
+      "hosts": [
+        "uobasrah.edu.iq",
+        "www.uobasrah.edu.iq"
+      ],
+      "link_selector": "a[href]",
+      "link_pattern": "/news/\\d+$",
+      "title_selector": "h1.title-blue",
+      "body_selector": "section .col-md-12",
+      "date_selector": "small",
+      "limit": 20,
+      "verification_note": "200 HTML؛ مدرجة في دليل الجامعات الحكومية لوزارة التعليم؛ مقال 15022 فحص بنجاح."
+    },
+    {
+      "id": "mohesr",
+      "name": "وزارة التعليم العالي والبحث العلمي",
+      "enabled": false,
+      "kind": "html",
+      "priority": 1,
+      "province": null,
+      "url": "https://mohesr.gov.iq/ar/",
+      "hosts": [
+        "mohesr.gov.iq"
+      ],
+      "link_selector": "a[href]",
+      "link_pattern": "/ar/post/",
+      "limit": 20,
+      "verification_note": "الرئيسية الرسمية 200 وروابط أخبار حقيقية؛ مقال أعاد صفحة حماية HTTP 200. معطل؛ لا محددات نص معتمدة بعد."
+    },
+    {
+      "id": "fpsc",
+      "name": "مجلس الخدمة العامة الاتحادي",
+      "enabled": false,
+      "kind": "html",
+      "priority": 1,
+      "province": null,
+      "url": "https://fpsc.gov.iq/",
+      "hosts": [
+        "fpsc.gov.iq"
+      ],
+      "verification_note": "HTTP 503 وقت الفحص؛ لم تعتمد آلية استخراج أو محددات وهمية. يتطلب إعادة تحقق."
+    }
+  ],
+  "channels": [
+    {
+      "username": "@mhdhjdgjvcxxcnnvcsagnnbxccjfsssg",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@albsra88",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@basrawebsite",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@f16f16f32",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@aqodalbasraa",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@BasrajobsCh",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@odai_aawad",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@Haider_alasedy",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@asfggtty315",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    },
+    {
+      "username": "@odaiaowad",
+      "enabled": false,
+      "mode": "public_preview",
+      "notify_news": true,
+      "keyword_pattern": "تعيين|تعيينات|وظيف|وظائف|فرص عمل|درجات وظيفية|عقود",
+      "verification_status": "pending_github_check",
+      "verification_note": "2026-10-30: شبكة الفحص أعادت Site Unavailable بدل محتوى القناة؛ لا يمكن تأكيد صلاحية المعاينة أو رسمية المحتوى. اختبر من GitHub قبل التفعيل."
+    }
+  ]
+}
