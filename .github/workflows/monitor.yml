@@ -1,0 +1,87 @@
+name: مراقبة التعيينات
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: نوع التشغيل
+        type: choice
+        options:
+          - monitor
+          - check-sources
+          - test-notification
+          - get-chat-id
+          - resolve
+        default: monitor
+
+      event_id:
+        description: معرف الرسالة المعلقة
+        type: string
+        required: false
+
+      decision:
+        description: قرار مراجعة الرسالة المعلقة
+        type: choice
+        options:
+          - sent
+          - retry
+        default: sent
+
+permissions:
+  contents: write
+
+concurrency:
+  group: government-jobs-state
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+
+    steps:
+      - name: تحميل ملفات المشروع
+        uses: actions/checkout@v4
+
+      - name: تجهيز Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: تثبيت المتطلبات
+        run: python -m pip install -r requirements.txt
+
+      - name: تشغيل المراقبة
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_MODE: ${{ inputs.mode || 'monitor' }}
+          EVENT_ID: ${{ inputs.event_id }}
+          DECISION: ${{ inputs.decision }}
+        shell: bash
+        run: |
+          case "$RUN_MODE" in
+            get-chat-id)
+              python bot.py --get-chat-id
+              ;;
+            check-sources)
+              python bot.py --check-sources
+              ;;
+            test-notification)
+              python bot.py --test-notification
+              ;;
+            resolve)
+              python bot.py --resolve "$EVENT_ID" --decision "$DECISION"
+              ;;
+            monitor)
+              python bot.py
+              ;;
+            *)
+              exit 1
+              ;;
+          esac
