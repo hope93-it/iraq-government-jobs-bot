@@ -149,7 +149,8 @@ def monitor_sources(store, config, fetcher):
                 key = digest(item['url'])
                 known_job = any(a['url'] == item['url'] for a in store.state['ads'].values())
                 # Revisit known jobs each run; unchanged non-job articles need no repeated fetch.
-                if status['seen'].get(key) == digest(item['title']) and not known_job:
+                known_review = digest(source['id'] + '|' + item['url']) in store.state['review']
+                if status['seen'].get(key) == digest(item['title']) and not known_job and not known_review:
                     continue
                 try:
                     doc = article(fetcher, source, item)
@@ -162,8 +163,18 @@ def monitor_sources(store, config, fetcher):
         # First-source baseline completes only after a fully successful listing/detail pass.
         baseline = not status['initialized']
         for key, item, doc in docs:
-            record_ad(store, source, doc, baseline=baseline)
+            ident = digest(source['id'] + '|' + doc['url'])
+            if doc.get('needs_review'):
+                store.state['review'][ident] = {'title': doc['title'], 'url': doc['url'],
+                    'source_id': source['id'], 'reason': doc['review_reason'], 'at': now(),
+                    'was_initial_baseline': baseline or store.state['review'].get(ident, {}).get('was_initial_baseline', False)}
+            else:
+                old_review = store.state['review'].get(ident, {})
+                if old_review.get('source_id') == source['id']:
+                    store.state['review'].pop(ident, None)
+                record_ad(store, source, doc, baseline=baseline or old_review.get('was_initial_baseline', False))
             status['seen'][key] = digest(item['title'])
+        status['content_review'] = sum(v.get('source_id') == source['id'] for v in store.state['review'].values())
         # Limit non-job URL cache; ad identities/fingerprints are never pruned automatically.
         if len(status['seen']) > 1500:
             status['seen'] = dict(list(status['seen'].items())[-1000:])
@@ -271,7 +282,8 @@ def command_reply(command, state, config):
             s = state['sources'].get(source['id'], {})
             statuses.append(source['name'] + ': ' + ('معطل بالإعدادات' if not source.get('enabled') else
                 ('خلل/فحص جزئي' if s.get('error') else ('ناجح' if s.get('success') else 'لم يفحص')))
-                + '\nآخر نجاح: ' + str(s.get('success', 'غير متوفر')))
+                + '\nآخر نجاح: ' + str(s.get('success', 'غير متوفر'))
+                + (f"\nصفحات مصورة تحتاج مراجعة: {s['content_review']}" if s.get('content_review') else ''))
         held = sum(x['status'] in ('sending', 'uncertain', 'failed') for x in state['outbox'].values())
         pending = sum(x['status'] == 'pending' for x in state['outbox'].values())
         channels = [f"@{k}: {v.get('error') or v.get('success') or 'لم يفحص'}" for k, v in state['channels'].items()]

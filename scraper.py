@@ -170,6 +170,12 @@ def listing(fetcher, source):
     return list(unique.values())[:source.get('limit', 30)]
 
 
+class ImageOnlyArticle(ValueError):
+    def __init__(self, title, date):
+        self.title, self.date = title, date
+        super().__init__('صفحة مصورة بلا نص قابل للقراءة؛ تحتاج مراجعة')
+
+
 def extract_document(raw, source, url, hint=None, content_type=''):
     if 'pdf' in content_type.lower() or urlsplit(url).path.lower().endswith('.pdf'):
         reader = PdfReader(io.BytesIO(raw))
@@ -182,12 +188,16 @@ def extract_document(raw, source, url, hint=None, content_type=''):
     s = soup_of(raw)
     title = s.select_one(source['title_selector'])
     body = s.select_one(source['body_selector'])
-    if not title or not body or len(body.get_text(strip=True)) < 25:
+    if not title or not body:
         raise ValueError('فشل استخراج عنوان أو نص الإعلان')
     date_node = s.select_one(source.get('date_selector', 'time[datetime]'))
     date = parse_date((date_node.get('datetime') or date_node.get('content') or date_node.get_text(' ', strip=True)) if date_node else None)
     if not date:
         date = (hint or {}).get('date')
+    if len(body.get_text(strip=True)) < 25:
+        if body.select_one('img,iframe,object,embed'):
+            raise ImageOnlyArticle(title.get_text(' ', strip=True), date)
+        raise ValueError('نص مقال مفقود؛ يحتاج تحقق من البنية')
     for junk in body.select('script,style,nav,footer,aside,form'):
         junk.decompose()
     links = [urljoin(url, a['href']) for a in body.select('a[href]')
@@ -197,7 +207,12 @@ def extract_document(raw, source, url, hint=None, content_type=''):
 
 def article(fetcher, source, item):
     raw, ct = fetcher.get(item['url'], source, 12_000_000)
-    title, body, date, pdfs = extract_document(raw, source, item['url'], item, ct)
+    try:
+        title, body, date, pdfs = extract_document(raw, source, item['url'], item, ct)
+    except ImageOnlyArticle as issue:
+        return {'url': item['url'], 'title': norm(issue.title), 'text': '',
+                'date': issue.date, 'warnings': [], 'needs_review': True,
+                'review_reason': str(issue)}
     warnings = []
     for link in dict.fromkeys(pdfs):
         if len(warnings) >= 2:
